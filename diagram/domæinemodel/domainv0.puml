@@ -1,0 +1,13 @@
+@startuml
+object PickList
+object Customer
+object productInformation
+object UserEmployee
+object Order
+
+ PickList--> UserEmployee
+ Customer --> Order
+ Order --> productInformation
+ productInformation --> PickList
+
+@enduml

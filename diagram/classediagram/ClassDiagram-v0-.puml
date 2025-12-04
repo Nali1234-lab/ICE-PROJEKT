@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Product
+class Order
+class Picklist
+class Main
+
+class Product{
+# String: name
+# int: dbNo
+# String: location
+}
+class Order{
+- String: dato
+- long: orderNo
+- long: customerNo
+- int: quanityOrdered
+}
+class Picklist{
++ String dato
+- ArrayList<String> picklist
+}
+class Main{
++ String userInput
+
+}
+
+package UTIL{
+class TextUI{
+- Scanner scan
++ void displayMsg()
+}
+
+class FileIO{
++ readData()
+}
+}
+
+Picklist <|-- Product
+Product <|-- Order
+Main <- Picklist
+
+UTIL -> Product
+UTIL -> Order
+UTIL-> Main
+UTIL -> Picklist
+
+
+@enduml
