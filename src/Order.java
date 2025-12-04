@@ -5,6 +5,9 @@ public class Order {
     private int quanityOrdered;
 
 
+// construktor
 
+    // OrdreList()
+    // metode som kalder på aflæsning af fil og laver et arraylist med de ønskede data
 
 }
