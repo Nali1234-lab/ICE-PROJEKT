@@ -1,5 +1,7 @@
+import java.time.LocalDate;
+
 public class Order {
-    private String dato;
+    private LocalDate dato;
     private long orderNo;
     private long customerNo;
     private int quanityOrdered;
@@ -9,5 +11,7 @@ public class Order {
 
     // OrdreList()
     // metode som kalder på aflæsning af fil og laver et arraylist med de ønskede data
+
+
 
 }

@@ -5,13 +5,19 @@ abstract class Product
 class Order
 class Picklist
 class Main
+class OrderLine
 
 
 class Order{
-- Localtime: dato
 - long: orderNo
 - long: customerNo
-- ArrayList<listOfProduct>
+- LocalDate: dato
+- ArrayList<listOfOrderLine>
+}
+
+class OrderLine{
+- String product
+- int quanity
 }
 
 abstract class Product{
@@ -23,6 +29,8 @@ class Picklist{
 + String dato
 - ArrayList<String> picklist
 }
+
+
 class Main{
 + String userInput
 
@@ -38,15 +46,17 @@ class FileIO{
 + readData()
 }
 }
+Order -|> OrderLine
+OrderLine -|> Product
+Picklist -|> Order
 
-Picklist <|-- Product
-Product <|-- Order
-Main <- Picklist
+Main -> Picklist
 
 UTIL -> Product
 UTIL -> Order
 UTIL-> Main
 UTIL -> Picklist
+
 
 
 @enduml
