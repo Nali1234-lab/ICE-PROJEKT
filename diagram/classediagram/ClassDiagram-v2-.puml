@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Order{
+- long: orderNo
+- long: customerNo
+- LocalDate: dato
+- ArrayList<listOfOrderLine>
+
+- ArrayList<String> orderList()
+- String checkProduct()
+- String totalSimilarProducts()
++ String getTotalSimilarProducts()
+}
+
+class OrderLine{
+- String product
+- int quanity
+}
+
+abstract class Product{
+ # String: name
+ # int: dbNo
+ # String: location
+
+ #ArrayList<String> readProduktArray()
+
+ }
+class PickList{
++ String dato
+- ArrayList<String> picklist
+
++ String pickListDateSorting()
++ void pickListOutput (dato)
+}
+
+
+class Main{
++ String userInput
+
+}
+
+package UTIL{
+class TextUI{
++ void promptText()
+}
+class FileIO{
++ void readData()
+}
+}
+Main <-down- PickList
+Product <|-up- OrderLine
+OrderLine <-up- Order
+Order <-up- PickList
+
+
+UTIL -left-> Product
+UTIL -left-> Order
+UTIL-left-> Main
+UTIL --> PickList
+
+
+
+@enduml
