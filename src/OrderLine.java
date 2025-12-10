@@ -10,8 +10,6 @@ public class OrderLine extends Product{
 
 
 
-
-
     public int getQuanity() {
         return quanity;
     }
