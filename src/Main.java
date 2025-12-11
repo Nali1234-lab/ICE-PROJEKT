@@ -19,5 +19,11 @@ public class Main {
         for(String line1 : order.orderlineSplitType);
         System.out.println(order.orderListPart4());
 
+
+        Product product = new Product();
+        for (Product line : product.getProductArraylist());
+        System.out.println(product.readProduktArray());
+
+
     }
 }
