@@ -22,8 +22,8 @@ public class PickList extends Application {
         stage.setTitle("Warehouse PickList");
 
         // 1. Input field
-        Label dateLabel = new Label("Enter date (e.g., 12/05/2025):");
-        dateInput.setPrefWidth(150);
+        Label dateLabel = new Label("Enter date (fx.: 12/05/2025):"); // text over the field
+        dateInput.setPrefWidth(150); // the field to input.
 
         // 2. Button
         Button showButton = new Button("Show PickList");
@@ -74,7 +74,7 @@ public class PickList extends Application {
         String date = dateInput.getText().trim();
 
         if (date.isEmpty()) {
-            showAlert("Please enter a date!");
+            showAlert("Please enter a date!"); // pop up window to the user tell what is wrong
             return;
         }
 
