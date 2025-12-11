@@ -20,6 +20,7 @@ public abstract class Product {
         this.name = name;
         this.dbNo = dbNo;
     }
+
     // metode til at aflæse vores produkt i csv-filen. og laver en arrayList.
     //protected ArrayList<String> readProduktArray(){ // because the metode to make a array is in fileIO
     // we not need that just call and use the methode ind a new metode

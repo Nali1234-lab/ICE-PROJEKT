@@ -1,23 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        String userInput;
+        // Start PickList JavaFX applikation
+       // PickList pickListApp = new PickList();
 
-        // methode call from PickList
+        // Vis picklist vinduet
+        //pickListApp.showPickListWindow();
 
-        Order order = new Order();
-        for(String line : order.orderlineWithDate);
-        System.out.println(order.orderListPart1());
-        System.out.println("\n");
-
-        for(String line1 : order.orderlineSortByDate);
-        System.out.println(order.orderListPart2());
-        System.out.println("\n");
-
-        System.out.println(order.orderListPart3());
-        System.out.println("\n");
-
-        for(String line1 : order.orderlineSplitType);
-        System.out.println(order.orderListPart4());
-
+        // Din eksisterende kode kan blive her...
+        // eller du kan fjerne den hvis du ikke skal bruge konsol output
     }
 }
