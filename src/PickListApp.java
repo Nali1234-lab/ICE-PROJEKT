@@ -8,10 +8,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
-public class PickList extends Application {
+public class PickListApp extends Application {
     private Order order = new Order();
     private TextField dateInput = new TextField();
     private TableView<TableItem> tableView = new TableView<>();
+    private Product product = new Product();
 
     public static void main(String[] args) {
         launch(args);
@@ -81,17 +82,23 @@ public class PickList extends Application {
         try {
             // 1. Get data from Order class
             order.testDato = date + " ";
-            order.orderListPart1();
-            order.orderListPart2();
-            order.orderListPart3();
-            ArrayList<String> rawData = order.orderListPart4();
+            order.runOrdreMethod(date);
+
+            //ArrayList<OrderLine> rawData = order.orderListPart4();
 
             // 2. Convert to TableItem objects
             ObservableList<TableItem> tableData = FXCollections.observableArrayList();
 
-            for (String rawItem : rawData) {
+           /* for (OrderLine rawItem : rawData) {
                 TableItem item = createTableItem(rawItem);
                 tableData.add(item);
+            }
+*/
+            OrderPicker orderPicker = new OrderPicker(product,order);
+            ArrayList<TableItem> tableItems = orderPicker.getOrderlinesWithLocation();
+
+            for (TableItem tableItem : tableItems) {
+                tableData.add(tableItem);
             }
 
             // 3. Show in table
@@ -130,7 +137,8 @@ public class PickList extends Application {
         String location = "?";
 
         // Create and return a TableItem object
-        return new TableItem(location, dbNumber, description, quantity);
+
+        return new TableItem(location, Integer.parseInt(dbNumber), description, Integer.parseInt(quantity));
     }
 
     private void showAlert(String message) {

@@ -3,11 +3,11 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+/*
 public class ProductList {
-
+/*
     public static Map<String, Product> productlist() {
-        Map<String, Product> map = new HashMap<>();
+        Map<Integer, Product> map = new HashMap<>();
         {
             try {
                 File alleVareFil = new File("data/Products");
@@ -25,7 +25,7 @@ public class ProductList {
                     String location = partOfLine[2];
 
                     Product product = new Product(dbNo, name, location);
-                   // map.put() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                  //  map.put(dbNo,location);
                 }
                 scanner.close();
             } catch (FileNotFoundException e) {
@@ -33,5 +33,5 @@ public class ProductList {
             }
             return map;
         }
-    }
-}
+    /
+*/

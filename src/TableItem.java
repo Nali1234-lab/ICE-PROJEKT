@@ -1,11 +1,11 @@
 public class TableItem {
     private String location;
-    private String dbNumber;
+    private int dbNumber;
     private String description;
-    private String quantity;
+    private int quantity;
 
     // Constructor
-    public TableItem(String location, String dbNumber, String description, String quantity) {
+    public TableItem(String location, int dbNumber, String description, int quantity) {
         this.location = location;
         this.dbNumber = dbNumber;
         this.description = description;
@@ -17,7 +17,7 @@ public class TableItem {
         return location;
     }
 
-    public String getDbNumber() {
+    public int getDbNumber() {
         return dbNumber;
     }
 
@@ -25,7 +25,7 @@ public class TableItem {
         return description;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
