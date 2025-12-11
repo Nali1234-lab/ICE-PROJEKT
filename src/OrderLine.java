@@ -3,7 +3,7 @@ public class OrderLine extends Product{
     private int quanity;
 
     public OrderLine(int dbNo, String name, int quanity) {
-        super(name, dbNo);
+        super(dbNo, name);
 
         this.quanity = quanity;
     }
