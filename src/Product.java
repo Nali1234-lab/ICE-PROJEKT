@@ -59,6 +59,7 @@ public class Product {
         this.productArraylist = productArraylist;
     }
 
+    /*
     public String toString() {
         return "DB.nr: " + dbNo + ", product name: " + name + ", location: " + location + "\n";
     }
@@ -81,7 +82,7 @@ public class Product {
         }
         return productArraylist;
     }
-
+*/
 }
 
 
