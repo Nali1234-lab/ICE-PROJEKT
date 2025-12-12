@@ -2,7 +2,7 @@ import UTIL.FileIO;
 
 import java.util.ArrayList;
 
-public class Order {
+public class Order {  // name shall change to Orders
     private String date;
     private long orderNo;
     private long customerNo;
@@ -28,7 +28,7 @@ public class Order {
         this.ordreLines = ordreLines;
     }
 
-    public void runOrdreMethod (String datoInput){
+    public void runOrdreMethod(String datoInput) {
         orderListPart1();
         orderListPart2(datoInput);
         orderListPart3();
@@ -60,8 +60,9 @@ public class Order {
         }
         return orderlineWithDate;
     }
-  // this part split and the arraylist from part 1 and make the date been avaibel to search for.
-  // it also takes the wanted line for the wanted date into a new arraylist
+
+    // this part split and the arraylist from part 1 and make the date been avaibel to search for.
+    // it also takes the wanted line for the wanted date into a new arraylist
     public ArrayList<String> orderListPart2(String datoInput) {
         for (String line : orderlineWithDate) {
             String[] partOfLine = line.split("#");
@@ -79,17 +80,18 @@ public class Order {
     public ArrayList<String> orderListPart3() {
         for (String line : orderlineSortByDate) {
             String[] partOfLine = line.split("&");
-            for(String ordreline: partOfLine) {
+            for (String ordreline : partOfLine) {
                 orderlinesForDate.add(ordreline.trim()); // use trim means we not need to set index nr. it hard to say if people order 1 og 10 things
             }
         }
         return orderlinesForDate;
     }
-    // the last make the arraylist for the split with types so we will now have an arraylist with (int, string, int)
-    public ArrayList<OrderLine> orderListPart4(){
-        ArrayList<OrderLine>orderlines= new ArrayList<>();
 
-        for (String line : orderlinesForDate){
+    // the last make the arraylist for the split with types so we will now have an arraylist with (int, string, int)
+    public ArrayList<OrderLine> orderListPart4() {
+        ArrayList<OrderLine> orderlines = new ArrayList<>();
+
+        for (String line : orderlinesForDate) {
 
             String[] partofLine = line.split("¨");
 
@@ -97,26 +99,20 @@ public class Order {
             String name = partofLine[1];
             int quanityOrdered = Integer.parseInt(partofLine[2]);
 
-            OrderLine orderLine = new OrderLine(dbNo,name,quanityOrdered);
+            OrderLine orderLine = new OrderLine(dbNo, name, quanityOrdered);
 
             orderlines.add(orderLine);
         }
         return orderlines;
     }
-
-     /* (checkProduct).
+}
+     /* (checkProduct). // metode rykket til OderPicker
     en metode som samligner vores db.no. med vores produkt-list.
     returner product-fulde-information + quantity+dato.
-    // bufferread
     // if (produktArraylist countains(dbNo)
     //
-    */
-
-
-    /* (totalSimilarProducts).
+    (totalSimilarProducts).
     (klad på checkProduct).
      en metode som lægger ens produkter sammen.
      laver vores pluklist.
     */
-
-}
