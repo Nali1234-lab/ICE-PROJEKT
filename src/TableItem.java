@@ -1,7 +1,7 @@
-public class TableItem {
+public class TableItem { // change name to Picklist
     private String location;
-    private int dbNumber;
-    private String description;
+    private int dbNumber; // change name to dbNo
+    private String description; // change to name
     private int quantity;
 
     // Constructor
@@ -10,6 +10,9 @@ public class TableItem {
         this.dbNumber = dbNumber;
         this.description = description;
         this.quantity = quantity;
+    }
+    public TableItem(){
+
     }
 
     // Getter metoder - JavaFX tabellen skal bruge disse!
@@ -27,6 +30,10 @@ public class TableItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     // Optional: En metode til at vise data som tekst
