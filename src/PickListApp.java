@@ -2,8 +2,8 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*; // UI controls (buttons, tables, etc.)
+import javafx.scene.control.cell.PropertyValueFactory; // Links table columns to object properties
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ArrayList;
@@ -11,31 +11,33 @@ import java.util.ArrayList;
 public class PickListApp extends Application {
     private Order order = new Order();
     private TextField dateInput = new TextField();
-    private TableView<TableItem> tableView = new TableView<>();
+    private TableView<TableItem> tableView = new TableView<>(); // Displays picklist data
     private Product product = new Product();
+    private OrderPicker orderPicker;
+    private boolean hasShownPickList = false; // Flag: picklist already shown
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         launch(args);
-    }
+    }*/
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Warehouse PickList");
+        stage.setTitle("Warehouse PickList");// Window title
 
         // 1. Input field
         Label dateLabel = new Label("Enter date (fx.: 12/05/2025):"); // text over the field
-        dateInput.setPrefWidth(150); // the field to input.
+        dateInput.setPrefWidth(150); // Set field
 
         // 2. Button
-        Button showButton = new Button("Show PickList");
-        showButton.setOnAction(e -> showPickList());
+        Button showButton = new Button("Show PickList");// Action button
+        showButton.setOnAction(e -> showPickList());  // Button click handler
 
         // 3. Setup table
         setupTable();
 
         // 4. Layout
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(
+        layout.getChildren().addAll( // Add all UI elements
                 dateLabel,
                 dateInput,
                 showButton,
@@ -44,8 +46,8 @@ public class PickListApp extends Application {
         );
 
         Scene scene = new Scene(layout, 600, 500);
-        stage.setScene(scene);
-        stage.show();
+        stage.setScene(scene); // Add scene to window
+        stage.show(); // Display window
     }
 
     private void setupTable() {
@@ -68,48 +70,70 @@ public class PickListApp extends Application {
 
         // Add columns to table
         tableView.getColumns().addAll(locationCol, dbCol, descCol, qtyCol);
-        tableView.setPrefHeight(350);
+        tableView.setPrefHeight(335); // Set table height
     }
 
     private void showPickList() {
-        String date = dateInput.getText().trim();
+        String date = dateInput.getText().trim(); //user input
 
         if (date.isEmpty()) {
             showAlert("Please enter a date!"); // pop up window to the user tell what is wrong
             return;
         }
+        if (hasShownPickList) {
+            showAlert("PickList has already been shown!");
+            return;
+        }
 
         try {
+            // empty tables first
+            tableView.getItems().clear();
             // 1. Get data from Order class
-            order.testDato = date + " ";
+
             order.runOrdreMethod(date);
 
-            //ArrayList<OrderLine> rawData = order.orderListPart4();
+            // 3. Læs produktdata
+            product.readProduktArray();
+
+            // 4. Opret OrderPicker
+            orderPicker = new OrderPicker(product, order);
+
+            // 5. Hent data med lokationer
+            orderPicker.getOrderlinesWithLocation();
+
+            // 6. Få den sorterede liste (denne metode kalder totalSimilarProducts() og sorterer)
+            ArrayList<TableItem> tableItems = orderPicker.sortPickList();
 
             // 2. Convert to TableItem objects
             ObservableList<TableItem> tableData = FXCollections.observableArrayList();
 
-           /* for (OrderLine rawItem : rawData) {
-                TableItem item = createTableItem(rawItem);
-                tableData.add(item);
-            }
-*/
-            OrderPicker orderPicker = new OrderPicker(product,order);
-            ArrayList<TableItem> tableItems = orderPicker.getOrderlinesWithLocation();
-
-            for (TableItem tableItem : tableItems) {
-                tableData.add(tableItem);
-            }
-
-            // 3. Show in table
+            tableData.addAll(tableItems);
             tableView.setItems(tableData);
+
+            hasShownPickList = true;
+            if (tableItems.isEmpty()) {
+                showAlert("No orders found for date: " + date);
+            }
 
         } catch (Exception e) {
             showAlert("Error: " + e.getMessage());
         }
     }
 
-    private TableItem createTableItem(String rawItem) {
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+}
+
+/*1-
+
+ this method was for testing javafx,before recive all code to use.
+ private TableItem createTableItem(String rawItem) {
+
         // Example rawItem: "748999Stiksav1"
 
         // Parse DB number (first 6 characters)
@@ -141,10 +165,20 @@ public class PickListApp extends Application {
         return new TableItem(location, Integer.parseInt(dbNumber), description, Integer.parseInt(quantity));
     }
 
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-}
+
+           /for (TableItem tableItem : tableItems) {
+                tableData.add(tableItem);
+            }
+
+// 2- Show in table
+//tableView.setItems(tableData);*/
+
+      /* for (OrderLine rawItem : rawData) {
+                TableItem item = createTableItem(rawItem);
+                tableData.add(item);
+            }
+*/
+
+//3- ArrayList<OrderLine> rawData = order.orderListPart4();
+
+//4- order.testDato = date + " ";
