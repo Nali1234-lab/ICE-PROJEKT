@@ -11,10 +11,11 @@ public class Order {  // name shall change to Orders
     public ArrayList<String> orderlineWithDate = new ArrayList<>();
     public ArrayList<String> orderlineSortByDate = new ArrayList<>();
     public ArrayList<String> orderlinesForDate = new ArrayList<>();
+
     public ArrayList<String> orderlineSplitType = new ArrayList<>();
     FileIO fio = new FileIO();
 
-    public String testDato = "12/05/2025 ";
+   // public String testDato = "12/05/2025 ";
 
     public Order() {
 
