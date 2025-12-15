@@ -24,18 +24,18 @@ public class PickListApp extends Application {
     public void start(Stage stage) {
         stage.setTitle("Warehouse PickList");// Window title
 
-        // 1. Input field
+        // Input field
         Label dateLabel = new Label("Enter date (fx.: 12/05/2025):"); // text over the field
         dateInput.setPrefWidth(150); // Set field
 
-        // 2. Button
+        //  Button
         Button showButton = new Button("Show PickList");// Action button
         showButton.setOnAction(e -> showPickList());  // Button click handler
 
-        // 3. Setup table
+        // Setup table
         setupTable();
 
-        // 4. Layout
+        //  Layout
         VBox layout = new VBox(10);
         layout.getChildren().addAll( // Add all UI elements
                 dateLabel,
@@ -104,7 +104,7 @@ public class PickListApp extends Application {
             // Get the sorted list (this method calls totalSimilarProducts() and sorts)
             ArrayList<TableItem> tableItems = orderPicker.sortPickList();
 
-            // 2. Convert to TableItem objects
+            // Convert to TableItem objects
             ObservableList<TableItem> tableData = FXCollections.observableArrayList();
 
             tableData.addAll(tableItems);
