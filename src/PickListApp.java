@@ -88,20 +88,20 @@ public class PickListApp extends Application {
         try {
             // empty tables first
             tableView.getItems().clear();
-            // 1. Get data from Order class
+            // Get data from Order class
 
             order.runOrdreMethod(date);
 
-            // 3. Læs produktdata
+            // Read product data
             product.readProduktArray();
 
-            // 4. Opret OrderPicker
+            // Opret OrderPicker
             orderPicker = new OrderPicker(product, order);
 
-            // 5. Hent data med lokationer
+            // Get data with locations
             orderPicker.getOrderlinesWithLocation();
 
-            // 6. Få den sorterede liste (denne metode kalder totalSimilarProducts() og sorterer)
+            // Get the sorted list (this method calls totalSimilarProducts() and sorts)
             ArrayList<TableItem> tableItems = orderPicker.sortPickList();
 
             // 2. Convert to TableItem objects
