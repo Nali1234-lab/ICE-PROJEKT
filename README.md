@@ -12,9 +12,21 @@ Den ansatte slås med følgende:
 •	 Uoverskuelighed giver stress i tak med de øget forventninger 
 
 De funktionelle krav:
-Et system der giver webshops pakkeren et bedre overblik over den samlede mængde, varer der skal plukkes fra butik og lager ned til pakkeriet ud fra de ordrer der kom ind i på webshoppen, på en given dato.
-Et system som reducerer spildtid for webshoppakkerens arbejdsgang. Det skal sortere ordrerne ud fra lokation og samle alle ordrerne til ”et papir” i stedet en ordrer pr. papir.
-Et system som kan få et enormt mængde pluksedler til at blive let håndgribelig. Det skal samle alle ordrerne og sammenligne varerne og give en samlet mængde der skal plukkes af samme vare.
-Et let anvendeligt system, som én udefrakommende kan bruge og uden en større introduktion. Det skal være let for brugeren af systemet at tilgå det, så brugeren ikke skal bruge længere tid.
-Et system som gør at forlagte sedler ikke resultere i GDPR problemer. Systemet skal lave en plukliste med kun varer oplysninger, derpå undgår man persondata overskrides. De beholder stadig deres ordresedler som kan blive nede i pakkeriet/lageret.
+Et system der giver webshops pakkeren et bedre overblik over den samlede mængde, 
+varer der skal plukkes fra butik og lager ned til pakkeriet ud fra de ordrer der kom ind i på webshoppen, på en given dato.
+
+Et system som reducerer spildtid for webshoppakkerens arbejdsgang.
+Det skal sortere ordrerne ud fra lokation og samle alle ordrerne til ”et papir” i stedet en ordrer pr. papir.
+
+Et system som kan få et enormt mængde pluksedler til at blive let håndgribelig.
+Det skal samle alle ordrerne og sammenligne varerne og give en samlet mængde der skal plukkes af samme vare.
+
+Et let anvendeligt system, som én udefrakommende kan bruge og uden en større introduktion. 
+Det skal være let for brugeren af systemet at tilgå det, så brugeren ikke skal bruge længere tid.
+
+Et system som gør at forlagte sedler ikke resultere i GDPR problemer.
+
+Systemet skal lave en plukliste med kun varer oplysninger, derpå undgår man persondata overskrides.
+De beholder stadig deres ordresedler som kan blive nede i pakkeriet/lageret.
+
 Produktet skal give brugeren en liste med lokation, varer nr., varenavn og mængde der skal plukkes.
