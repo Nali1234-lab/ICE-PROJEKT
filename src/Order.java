@@ -8,9 +8,9 @@ public class Order {  // name shall change to Orders
     private long customerNo;
     public ArrayList<String> ordreLines; // changed from int quanityOrdered to Arraylist ordreLines
     public ArrayList<String> orderListArraylist = new ArrayList<>();
-    public ArrayList<String> orderlineWithDate = new ArrayList<>();
-    public ArrayList<String> orderlineSortByDate = new ArrayList<>();
-    public ArrayList<String> orderlinesForDate = new ArrayList<>();
+    public ArrayList<String> orderListpart1 = new ArrayList<>();
+    public ArrayList<String> orderListpart2 = new ArrayList<>();
+    public ArrayList<String> orderListpart3 = new ArrayList<>();
 
     public ArrayList<String> orderlineSplitType = new ArrayList<>();
     FileIO fio = new FileIO();
@@ -56,43 +56,43 @@ public class Order {  // name shall change to Orders
             if (partOfLine.length == 4) {
                 String getDate = partOfLine[1]; // take dato from orderListArraylist
                 String getOdreline = partOfLine[3]; // take the odreline
-                orderlineWithDate.add(getDate + getOdreline); // put them into a new arraylist
+                orderListpart1.add(getDate + getOdreline); // put them into a new arraylist
             }
         }
-        return orderlineWithDate;
+        return orderListpart1;
     }
 
     // this part split and the arraylist from part 1 and make the date been avaibel to search for.
     // it also takes the wanted line for the wanted date into a new arraylist
     public ArrayList<String> orderListPart2(String datoInput) {
-        for (String line : orderlineWithDate) {
+        for (String line : orderListpart1) {
             String[] partOfLine = line.split("#");
             String dato = partOfLine[0];
             String ordrelines = partOfLine[1];
             if (dato.equals(datoInput)) {
-                orderlineSortByDate.add(ordrelines);
+                orderListpart2.add(ordrelines);
             }
         }
-        return orderlineSortByDate;
+        return orderListpart2;
     }
 
     // this part split up the ordreline if there are more than just one
     // so we get a new list again with ordrelines there not are on the same line.
     public ArrayList<String> orderListPart3() {
-        for (String line : orderlineSortByDate) {
+        for (String line : orderListpart2) {
             String[] partOfLine = line.split("&");
             for (String ordreline : partOfLine) {
-                orderlinesForDate.add(ordreline.trim()); // use trim means we not need to set index nr. it hard to say if people order 1 og 10 things
+                orderListpart3.add(ordreline.trim()); // use trim means we not need to set index nr. it hard to say if people order 1 og 10 things
             }
         }
-        return orderlinesForDate;
+        return orderListpart3;
     }
 
     // the last make the arraylist for the split with types so we will now have an arraylist with (int, string, int)
     public ArrayList<OrderLine> orderListPart4() {
         ArrayList<OrderLine> orderlines = new ArrayList<>();
 
-        for (String line : orderlinesForDate) {
+        for (String line : orderListpart3) {
 
             String[] partofLine = line.split("¨");
 
