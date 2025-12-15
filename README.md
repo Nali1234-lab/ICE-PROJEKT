@@ -4,11 +4,17 @@ Men nogle gange skal man se på de andre steder og om der er en løsning som ikk
 Effektivisering kan ske på mange måde ofte er det mindske tid og i andre gange er det at give overblik.
 I dette tilfælde ser vi på hvordan den ansatte webpakker arbejder, i en bestemt virksomhed og hvad der kunne gøres anderledes:
 Den ansatte slås med følgende:
+
 •	Pluklister printes ud fra deres ordrenummer = manuel sortering.
+
 •	Der står kun en ordre på hver seddel = mange papir at holde styr på
+
 •	Hvis man ikke manuelt har sorteret = går frem og tilbage (spild tid).
+
 •	Det kan tage manuelt at sortere mellem 15-45 min an på ordremængde
+
 •	Papir indeholder GDPR. = hvis bliver væk eller er synlig i butik kan give stor bøde til virksomhed.
+
 •	 Uoverskuelighed giver stress i tak med de øget forventninger 
 
 De funktionelle krav:
