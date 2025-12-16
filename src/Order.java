@@ -107,7 +107,8 @@ public class Order {  // name shall change to Orders
         return orderlines;
     }
 }
-     /* (checkProduct). // metode rykket til OderPicker
+     /* // metode rykket til OderPicker
+     (checkProduct).
     en metode som samligner vores db.no. med vores produkt-list.
     returner product-fulde-information + quantity+dato.
     // if (produktArraylist countains(dbNo)

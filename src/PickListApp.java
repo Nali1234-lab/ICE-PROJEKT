@@ -25,7 +25,7 @@ public class PickListApp extends Application {
         stage.setTitle("Warehouse PickList");// Window title
 
         // Input field
-        Label dateLabel = new Label("Enter date (fx.: 12/05/2025):"); // text over the field
+        Label dateLabel = new Label("Enter date (mm/dd/yyyy):"); // text over the field
         dateInput.setPrefWidth(150); // Set field
 
         //  Button
@@ -57,11 +57,11 @@ public class PickListApp extends Application {
         locationCol.setPrefWidth(100);
 
         TableColumn<PickListLine, String> dbCol = new TableColumn<>("DB Number");
-        dbCol.setCellValueFactory(new PropertyValueFactory<>("dbNumber"));
+        dbCol.setCellValueFactory(new PropertyValueFactory<>("dbNo"));
         dbCol.setPrefWidth(100);
 
         TableColumn<PickListLine, String> descCol = new TableColumn<>("Description");
-        descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        descCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         descCol.setPrefWidth(200);
 
         TableColumn<PickListLine, String> qtyCol = new TableColumn<>("Quantity");
@@ -74,6 +74,7 @@ public class PickListApp extends Application {
     }
 
     private void showPickList() {
+
         String date = dateInput.getText().trim(); //user input
 
         if (date.isEmpty()) {

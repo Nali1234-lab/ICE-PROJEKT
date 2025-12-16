@@ -49,7 +49,7 @@ public class OrderPicker {
                 PickListLine dbNoMatch = totalQuantety.get(dbNo);
                 dbNoMatch.setQuantity(dbNoMatch.getQuantity() + line.getQuantity());
             } else {
-                totalQuantety.put(dbNo, new PickListLine(line.getLocation(),dbNo,line.getNavn(),line.getQuantity()));
+                totalQuantety.put(dbNo, new PickListLine(line.getLocation(),dbNo,line.getName(),line.getQuantity()));
             }
 
         }

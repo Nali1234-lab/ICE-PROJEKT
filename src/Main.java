@@ -3,24 +3,30 @@ import UTIL.TextUI;
 public class Main {
     public static void main(String[] args) {
 
-       // call all class there will be use and method.
+        // call all class there will be use and method.
         TextUI tui = new TextUI();
-        String userInput = tui.promptText();
+        boolean run = true;
+        while (run) {
+            if (true) {
+                String userInput = tui.promptText();
 
-        Order order = new Order();
-        Product product = new Product();
-        OrderPicker orderPicker = new OrderPicker(product,order);
-        order.runOrdreMethod(userInput);
-        product.readProduktArray();
-        orderPicker.getOrderlinesWithLocation();
+                Order order = new Order();
+                Product product = new Product();
+                OrderPicker orderPicker = new OrderPicker(product, order);
+                order.runOrdreMethod(userInput);
+                product.readProduktArray();
+                orderPicker.getOrderlinesWithLocation();
 
 
-        for ( PickListLine line : orderPicker.sortPickList()){
-            System.out.println(line);
+                for (PickListLine line : orderPicker.sortPickList()) {
+                    System.out.println(line);
+                }
+            } else {
+                break;
+
+            }
         }
-
     }
-
 }
 
 
