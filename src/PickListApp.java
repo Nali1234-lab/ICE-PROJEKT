@@ -6,6 +6,7 @@ import javafx.scene.control.*; // UI controls (buttons, tables, etc.)
 import javafx.scene.control.cell.PropertyValueFactory; // Links table columns to object properties
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.util.ArrayList;
 
 public class PickListApp extends Application {
@@ -80,6 +81,7 @@ public class PickListApp extends Application {
             showAlert("Please enter a date!"); // pop up window to the user tell what is wrong
             return;
         }
+
         if (hasShownPickList) {
             showAlert("PickList has already been shown!");
             return;
