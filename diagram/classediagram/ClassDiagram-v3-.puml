@@ -1,0 +1,107 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Order{
++ ArrayList<String> OrderList
++ ArrayList<String> orderListPart1
++ ArrayList<String> orderListPart2
++ ArrayList<String> orderListPart3
+
++ Order()
++ void runOrderMethoede()
++ ArrayList<String> orderListPart1()
++ ArrayList<String> orderListPart2()
++ ArrayList<String> orderListPart3()
++ ArrayList<String> orderListPart4()
+}
+
+class OrderLine{
+- dbNO int
+- name String
+- quantity int
++ orderLine()
++ getter()
++ setter()
++ toString()
+}
+class OrderPicker{
++ ArrayList<PickListLine>
++ hashMap<Integer,PickListLine> totalQantity
++ ArrayList<PickListLine> finalPicklist
+
++ OrderPicker()
++ ArrayList<PickListLine> getOrderlinesWithLocation()
++ ArrayList<PickListLine> totalSimailarproducts()
++ ArrayList<PickListLine> sortPickList()
+}
+
+class Product{
+ - name String
+ - dbNo  int
+ - location String
+ - ArrayList<String> productReadToArraylist
+ - ArrayList<Product> productArraylist
+ + Product()
+ + getter()
+ + setter()
+ + toString()
+ + ArrayList<String> readProduktArray()
+ }
+class PickListApp{
+- TextField dateInput = new TextField();
+- TableView<PickListLine> tableView
+- boolean hasShownPickList
+
++ void start()
+- void setupTable()
+- void showPickList()
+- void sowAlert()
+}
+class PickListLine{
+- location String:
+- dbNo    int:
+- name   String:
+- qusntities int:
+
++ PickListLine()
++ getter()
++ setter()
++ toString()
+}
+
+class LocationComparator{
++ int compare()
+}
+class Main{
++ String userInput
+
+}
+
+package UTIL{
+class TextUI{
++ void promptText()
+}
+class FileIO{
++ ArrayList<String> readData()
+
+}
+}
+LocationComparator <-- OrderPicker
+OrderPicker <- PickListApp
+PickListLine <- OrderPicker
+PickListLine <-PickListApp
+Main ---> PickListLine
+Main ->Product
+Main ---> Order
+Main -> OrderPicker
+Order <--- PickListApp
+Order <-- OrderPicker
+OrderLine <- Product
+OrderLine <- OrderPicker
+OrderLine <-- Order
+UTIL <-- Product
+UTIL <-- Order
+UTIL<-- Main
+
+
+@enduml
