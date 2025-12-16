@@ -1,17 +1,17 @@
-public class TableItem { // change name to Picklist
+public class PickListLine { // change name to Picklist
     private String location;
-    private int dbNumber; // change name to dbNo
-    private String description; // change to name
+    private int dbNo; // change name to dbNo
+    private String navn; // change to name
     private int quantity;
 
     // Constructor
-    public TableItem(String location, int dbNumber, String description, int quantity) {
+    public PickListLine(String location, int dbNo, String navn, int quantity) {
         this.location = location;
-        this.dbNumber = dbNumber;
-        this.description = description;
+        this.dbNo = dbNo;
+        this.navn = navn;
         this.quantity = quantity;
     }
-    public TableItem(){
+    public PickListLine(){
 
     }
 
@@ -20,12 +20,12 @@ public class TableItem { // change name to Picklist
         return location;
     }
 
-    public int getDbNumber() {
-        return dbNumber;
+    public int getDbNo() {
+        return dbNo;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNavn() {
+        return navn;
     }
 
     public int getQuantity() {
@@ -39,6 +39,6 @@ public class TableItem { // change name to Picklist
     // Optional: En metode til at vise data som tekst
     @Override
     public String toString() {
-        return location + " | " + dbNumber + " | " + description + " | " + quantity;
+        return location + " | " + dbNo + " | " + navn + " | " + quantity;
     }
 }
