@@ -3,30 +3,17 @@ import UTIL.FileIO;
 import java.util.ArrayList;
 
 public class Order {  // name shall change to Orders
-    private String date;
-    private long orderNo;
-    private long customerNo;
-    public ArrayList<String> ordreLines; // changed from int quanityOrdered to Arraylist ordreLines
     public ArrayList<String> orderListArraylist = new ArrayList<>();
     public ArrayList<String> orderListpart1 = new ArrayList<>();
     public ArrayList<String> orderListpart2 = new ArrayList<>();
     public ArrayList<String> orderListpart3 = new ArrayList<>();
 
-    public ArrayList<String> orderlineSplitType = new ArrayList<>();
     FileIO fio = new FileIO();
 
    // public String testDato = "12/05/2025 ";
 
     public Order() {
 
-    }
-
-    // constructor
-    public Order(long customerNo, String date, long orderNo, ArrayList<String> ordreLines) {
-        this.customerNo = customerNo;
-        this.date = date;
-        this.orderNo = orderNo;
-        this.ordreLines = ordreLines;
     }
 
     public void runOrdreMethod(String datoInput) {
@@ -118,3 +105,20 @@ public class Order {  // name shall change to Orders
      en metode som lægger ens produkter sammen.
      laver vores pluklist.
     */
+
+
+  /* not used
+   // constructor
+    public Order(long customerNo, String date, long orderNo, ArrayList<String> ordreLines) {
+        this.customerNo = customerNo;
+        this.date = date;
+        this.orderNo = orderNo;
+        this.ordreLines = ordreLines;
+    }
+
+ private String date;
+    private long orderNo;
+    private long customerNo;
+    public ArrayList<String> ordreLines; // changed from int quanityOrdered to Arraylist ordreLines
+      public ArrayList<String> orderlineSplitType = new ArrayList<>();
+   */
