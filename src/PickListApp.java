@@ -15,7 +15,7 @@ public class PickListApp extends Application {
     private TableView<PickListLine> tableView = new TableView<>(); // Displays picklist data
     private Product product = new Product();
     private OrderPicker orderPicker;
-    private boolean hasShownPickList = false; // Flag: picklist already shown
+   // private boolean hasShownPickList = false; // Flag: picklist already shown   // this not use after changing so the system can run again and again
 
     /*public static void main(String[] args) {
         launch(args);
@@ -74,7 +74,8 @@ public class PickListApp extends Application {
         tableView.setPrefHeight(1000); // Set table height
     }
 
-    private void showPickList() {
+
+        private void showPickList() {
 
         String date = dateInput.getText().trim(); //user input
 
@@ -83,15 +84,23 @@ public class PickListApp extends Application {
             return;
         }
 
+        /*  no need because it make the system not to run again when new input.
         if (hasShownPickList) {
             showAlert("PickList has already been shown!");
             return;
         }
 
+         */
+
         try {
             // empty tables first
             tableView.getItems().clear();
             // Get data from Order class
+
+           // this will clean the data before it run the method so it not run over the old version:
+            order = new Order();
+            product = new Product();
+            orderPicker = null;
 
             order.runOrdreMethod(date);
 
@@ -113,10 +122,11 @@ public class PickListApp extends Application {
             tableData.addAll(pickListLines);
             tableView.setItems(tableData);
 
-            hasShownPickList = true;
-            if (pickListLines.isEmpty()) {
+           // hasShownPickList = true;    no need for this line
+            if (pickListLines.isEmpty()) { // pickListLines.
                 showAlert("No orders found for date: " + date);
             }
+
 
         } catch (Exception e) {
             showAlert("Error: " + e.getMessage());
