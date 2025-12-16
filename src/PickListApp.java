@@ -71,7 +71,7 @@ public class PickListApp extends Application {
 
         // Add columns to table
         tableView.getColumns().addAll(locationCol, dbCol, descCol, qtyCol);
-        tableView.setPrefHeight(335); // Set table height
+        tableView.setPrefHeight(1000); // Set table height
     }
 
     private void showPickList() {
