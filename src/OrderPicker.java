@@ -18,7 +18,7 @@ public class OrderPicker {
         this.order = order;
     }
 
-    ArrayList<PickListLine> getOrderlinesWithLocation(){
+    public ArrayList<PickListLine> getOrderlinesWithLocation(){
         ArrayList<Product> products = product.getProductArraylist();
         ArrayList<OrderLine> orderLines = order.orderListPart4();
 

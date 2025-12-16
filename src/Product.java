@@ -68,7 +68,7 @@ public class Product {
     //protected ArrayList<String> readProduktArray(){ // because the metode to make a array is in fileIO
     // we not need that just call and use the methode ind a new metode
 
-    protected ArrayList<Product> readProduktArray() {  // change the method from void to arraylist 11/12/2025 SF
+    public ArrayList<Product> readProduktArray() {  // change the method from void to arraylist 11/12/2025 SF
         fIO.readData("data/Products", productReadToArraylist);
         //return null; // indtil videre!!! // not need anymore.
 
