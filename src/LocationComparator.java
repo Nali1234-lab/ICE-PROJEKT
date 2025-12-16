@@ -1,8 +1,8 @@
 import java.util.Comparator;
 
-public class LocationComparator implements Comparator<TableItem> {
+public class LocationComparator implements Comparator<PickListLine> {
 
-    public int compare(TableItem l1, TableItem l2){
+    public int compare(PickListLine l1, PickListLine l2){
         return CharSequence.compare(l1.getLocation(), l2.getLocation());
     }
 }

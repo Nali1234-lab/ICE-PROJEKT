@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class PickListApp extends Application {
     private Order order = new Order();
     private TextField dateInput = new TextField();
-    private TableView<TableItem> tableView = new TableView<>(); // Displays picklist data
+    private TableView<PickListLine> tableView = new TableView<>(); // Displays picklist data
     private Product product = new Product();
     private OrderPicker orderPicker;
     private boolean hasShownPickList = false; // Flag: picklist already shown
@@ -52,19 +52,19 @@ public class PickListApp extends Application {
 
     private void setupTable() {
         // Create 4 columns
-        TableColumn<TableItem, String> locationCol = new TableColumn<>("Location");
+        TableColumn<PickListLine, String> locationCol = new TableColumn<>("Location");
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
         locationCol.setPrefWidth(100);
 
-        TableColumn<TableItem, String> dbCol = new TableColumn<>("DB Number");
+        TableColumn<PickListLine, String> dbCol = new TableColumn<>("DB Number");
         dbCol.setCellValueFactory(new PropertyValueFactory<>("dbNumber"));
         dbCol.setPrefWidth(100);
 
-        TableColumn<TableItem, String> descCol = new TableColumn<>("Description");
+        TableColumn<PickListLine, String> descCol = new TableColumn<>("Description");
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
         descCol.setPrefWidth(200);
 
-        TableColumn<TableItem, String> qtyCol = new TableColumn<>("Quantity");
+        TableColumn<PickListLine, String> qtyCol = new TableColumn<>("Quantity");
         qtyCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         qtyCol.setPrefWidth(80);
 
@@ -102,16 +102,16 @@ public class PickListApp extends Application {
             orderPicker.getOrderlinesWithLocation();
 
             // Get the sorted list (this method calls totalSimilarProducts() and sorts)
-            ArrayList<TableItem> tableItems = orderPicker.sortPickList();
+            ArrayList<PickListLine> pickListLines = orderPicker.sortPickList();
 
             // Convert to TableItem objects
-            ObservableList<TableItem> tableData = FXCollections.observableArrayList();
+            ObservableList<PickListLine> tableData = FXCollections.observableArrayList();
 
-            tableData.addAll(tableItems);
+            tableData.addAll(pickListLines);
             tableView.setItems(tableData);
 
             hasShownPickList = true;
-            if (tableItems.isEmpty()) {
+            if (pickListLines.isEmpty()) {
                 showAlert("No orders found for date: " + date);
             }
 

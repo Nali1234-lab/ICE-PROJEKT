@@ -1,8 +1,5 @@
 import UTIL.TextUI;
 
-import java.time.format.TextStyle;
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -18,7 +15,7 @@ public class Main {
         orderPicker.getOrderlinesWithLocation();
 
 
-        for ( TableItem line : orderPicker.sortPickList()){
+        for ( PickListLine line : orderPicker.sortPickList()){
             System.out.println(line);
         }
 
