@@ -131,53 +131,6 @@ public class PickListApp extends Application {
         alert.showAndWait();
     }
 
-    public TextField getDateInput() {
-        return dateInput;
-    }
-
-    public void setDateInput(TextField dateInput) {
-        this.dateInput = dateInput;
-    }
-
-    public boolean isHasShownPickList() {
-        return hasShownPickList;
-    }
-
-    public void setHasShownPickList(boolean hasShownPickList) {
-        this.hasShownPickList = hasShownPickList;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public OrderPicker getOrderPicker() {
-        return orderPicker;
-    }
-
-    public void setOrderPicker(OrderPicker orderPicker) {
-        this.orderPicker = orderPicker;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public TableView<PickListLine> getTableView() {
-        return tableView;
-    }
-
-    public void setTableView(TableView<PickListLine> tableView) {
-        this.tableView = tableView;
-    }
 }
 
 

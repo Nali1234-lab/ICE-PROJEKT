@@ -6,4 +6,4 @@ customerNo; date; orderNo; ordreLine(db ^ varenavn ^ antal bestilt) & ordreLine
 4;12/05/2025#; 0030;748999¨ Stiksav ¨1
 5;12/04/2025#; 0084;748999¨ Stiksav¨1 & 541264¨ T-shirt_M ¨2
 6;12/04/2025#; 0055;885500¨ Gipsskruer¨3 & 856156¨ Bits ¨2 & 740883¨Boremaskine¨1
-1;12/05/2025#; 0055;885500¨ Gipsskruer¨3 & 856156¨ Bits ¨2 & 740883¨Boremaskine¨1
+1;12/05/2025#; 0056;885500¨ Gipsskruer¨3 & 856156¨ Bits ¨2 & 740883¨Boremaskine¨1
