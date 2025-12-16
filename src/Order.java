@@ -35,7 +35,7 @@ public class Order {  // name shall change to Orders
     // the new split version adds to a new arraylist.
 
     public ArrayList<String> orderListPart1() {  // this method read the dokument of ordre an take the date an the orderlines and put to a new arraylist.
-        fio.readData("data/Order", orderListArraylist); // reading only the data and put it on a arraylist.
+        fio.readData("data/Order.csv", orderListArraylist); // reading only the data and put it on a arraylist.
         // stil need to sort the String, and we want only the last part of the String to make a new Arraylist with
 
         for (String line : orderListArraylist) {
